@@ -5,6 +5,5 @@ import com.magicbytes.mycv.ListItem
 
 class ExperienceHeaderViewHolder(itemView: View) : BaseViewHolder(itemView) {
     override fun show(item: ListItem) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

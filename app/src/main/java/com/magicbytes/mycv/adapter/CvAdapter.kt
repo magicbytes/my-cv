@@ -12,7 +12,7 @@ class CvAdapter(private val items: List<ListItem>) : RecyclerView.Adapter<BaseVi
         val itemType = ListItem.Type.values()[viewType]
 
         val inflater = LayoutInflater.from(viewGroup.context)
-        val holder = when (itemType) {
+        return when (itemType) {
             ListItem.Type.Image -> {
                 val view = inflater.inflate(R.layout.list_item_image, viewGroup, false)
                 ImageViewHolder(view)
@@ -21,14 +21,25 @@ class CvAdapter(private val items: List<ListItem>) : RecyclerView.Adapter<BaseVi
                 val view = inflater.inflate(R.layout.list_item_name, viewGroup, false)
                 NameViewHolder(view)
             }
-            ListItem.Type.Summary -> TODO()
-            ListItem.Type.Skills -> TODO()
-            ListItem.Type.ExperienceHeader -> TODO()
-            ListItem.Type.Experience -> TODO()
+            ListItem.Type.Summary -> {
+                val view = inflater.inflate(R.layout.list_item_summary, viewGroup, false)
+                SummaryViewHolder(view)
+            }
+            ListItem.Type.Skills -> {
+                val view = inflater.inflate(R.layout.list_item_skills, viewGroup, false)
+                SkillsViewHolder(view)
+            }
+            ListItem.Type.ExperienceHeader -> {
+                val view = inflater.inflate(R.layout.list_item_experience_header, viewGroup, false)
+                ExperienceHeaderViewHolder(view)
+            }
+            ListItem.Type.Experience -> {
+                val view = inflater.inflate(R.layout.list_item_experience, viewGroup, false)
+                ExperienceViewHolder(view)
+            }
             ListItem.Type.EducationHeader -> TODO()
             ListItem.Type.Education -> TODO()
         }
-        return holder
     }
 
     override fun onBindViewHolder(viewHolder: BaseViewHolder, position: Int) {
